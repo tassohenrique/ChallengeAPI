@@ -17,7 +17,7 @@ class Api::V1::NetflixesController < Api::V1::BaseController
 
 
   def index
-    @netflixes = Netflix.all.sort_by{|h|h['year']}
+    @netflixes = Netflix.all.order(:year)
     render json: { netflixes: @netflixes  }, status: :ok
   end
 
