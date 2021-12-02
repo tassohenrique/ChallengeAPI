@@ -14,11 +14,19 @@ class Api::V1::NetflixesController < Api::V1::BaseController
       end
   end
 
-
-
   def index
-    @netflixes = Netflix.all.order(:year)
-    render json: { netflixes: @netflixes  }, status: :ok
+    # search = ""
+    #   if params[:year]
+    #     search = "netflixes.year ILIKE %#{params[:year]}% AND "
+    #   end
+    #   if params[:genre]
+    #     search += "netflixes.genre ILIKE %#{params[:genre]}% AND "
+    #   end
+    #   if params[:country]
+    #     search += "netflixes.country ILIKE %#{params[:country]}% "
+    #   end
+      @netflixes = Netflix.all.order(:year)
+      # @netflixes = Netflix.where("#{search}")
+    render json: { netflixes: @netflixes }, status: :ok
   end
-
 end
