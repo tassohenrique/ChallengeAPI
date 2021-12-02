@@ -5,7 +5,7 @@ class Api::V1::NetflixesController < Api::V1::BaseController
       netflix = Netflix.create(
                       title: row['title'],
                       genre: row['listed_in'],
-                      year: row['release_year'],
+                      year: row['release_year'].to_i,
                       country: row['country'],
                       published_at: row['date_added'],
                       description: row['description']
@@ -17,7 +17,7 @@ class Api::V1::NetflixesController < Api::V1::BaseController
 
 
   def index
-    @netflixes = Netflix.all
+    @netflixes = Netflix.all.sort_by{|h|h['year']}
     render json: { netflixes: @netflixes  }, status: :ok
   end
 

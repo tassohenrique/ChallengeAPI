@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_144219) do
+ActiveRecord::Schema.define(version: 2021_12_02_202342) do
 
   create_table "netflixes", force: :cascade do |t|
     t.string "title"
     t.string "genre"
-    t.string "year"
+    t.integer "year"
     t.string "country"
     t.string "published_at"
     t.text "description"
